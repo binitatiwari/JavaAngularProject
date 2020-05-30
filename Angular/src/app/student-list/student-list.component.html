@@ -22,8 +22,11 @@
               <tr>
                   <th>Student Name</th>
                   <th>Student Email</th>
-                  <th>Student Branch</th>
+                  <th>Student Branch</th>                 
+                  <th>Street</th>
+                  <th>ZIPcode</th>
                   <th>Action</th>
+                 
                   
               </tr>
           </thead>
@@ -32,10 +35,14 @@
                   <td>{{student.student_name}}</td>
                   <td>{{student.student_email}}</td>
                   <td>{{student.student_branch}}</td>
+                  <td>{{student.address?.street}}</td>
+                  <td>{{student.address?.zipCode}}</td>
                   <td><button (click)="deleteStudent(student.student_id)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>&nbsp;
                     <button (click)="updateStudent(student.student_id)" class='btn btn-info'
                     data-toggle="modal" data-target="#myModal">Update</button>
-                  </td>
+                  </td>              
+                 
+
                 </tr> 
           </tbody><br>
       </table>
@@ -74,8 +81,17 @@
                                     <option value="BCA" [selected]="'BCA' == student.student_branch">BCA</option>
                                     <option value="MCA" [selected]="'MCA' == student.student_branch" >MCA</option>
                                     <option value="M-Tech" [selected]="'M-Tech' == student.student_branch">M-Tech</option>
-                                  </select>                               
-                            </div>                   
+                                  </select>    
+                                  </div>    
+                                  <div class="form-group">
+                                    <label for="name">Street</label>
+                                    <input type="text" class="form-control" formControlName="street" [(ngModel)]="student.address.street">
+                                </div>    
+                                <div class="form-group">
+                                  <label for="name">ZipCode</label>
+                                  <input type="text" class="form-control" formControlName="zipCode" [(ngModel)]="student.address.zipCode">
+                              </div>                   
+                                         
                   </div>  
                   <div [hidden]="!isupdated">
                       <h4>Student Detail Updated!</h4>

@@ -4,4 +4,5 @@ export class Student {
     student_name:String;
     student_email:String;
     student_branch=String;
+ 
 }

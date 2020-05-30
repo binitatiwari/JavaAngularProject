@@ -47,7 +47,7 @@ export class StudentListComponent implements OnInit {
           console.log(data);
           this.deleteMessage=true;
           this.studentservice.getStudentList().subscribe(data =>{
-            this.students =data
+          this.students =data
             })
         },
         error => console.log(error));
@@ -67,7 +67,11 @@ export class StudentListComponent implements OnInit {
     student_id:new FormControl(),
     student_name:new FormControl(),
     student_email:new FormControl(),
-    student_branch:new FormControl()
+    student_branch:new FormControl(),
+    street:new FormControl(),
+    zipCode:new FormControl(),
+
+   
   });
 
   updateStu(updstu){
@@ -75,7 +79,8 @@ export class StudentListComponent implements OnInit {
    this.student.student_id=this.StudentId.value;
    this.student.student_name=this.StudentName.value;
    this.student.student_email=this.StudentEmail.value;
-   this.student.student_branch=this.StudentBranch.value;
+   this.student.student_branch=this.StudentBranch.value;   
+  
    console.log(this.StudentBranch.value);
    
 
@@ -103,6 +108,12 @@ export class StudentListComponent implements OnInit {
 
   get StudentId(){
     return this.studentupdateform.get('student_id');
+  }
+  get Street(){
+    return this.studentupdateform.get('street');
+  }
+  get ZipCode(){
+    return this.studentupdateform.get('zipCode');
   }
 
   changeisUpdate(){
