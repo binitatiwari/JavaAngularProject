@@ -1,9 +1,13 @@
 package Model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -41,6 +45,18 @@ public class Student {
 	public void setStudent_branch(String student_branch) {
 		this.student_branch = student_branch;
 	}
+	
+	 public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "student")
+	//  @JoinColumn(unique = true)
+	    private Address address;
 
 	public Student() {}
 	

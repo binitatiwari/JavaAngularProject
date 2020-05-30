@@ -31,7 +31,8 @@ public class Controller {
 	
 	@GetMapping("students-list")
 	public List<Student> allstudents() {
-		 return studentservice.getStudents();
+		List<Student> allStudent = studentservice.getStudents();
+		 return allStudent;
 	}
 	
 	
